@@ -1,0 +1,17 @@
+_build
+_tracks
+
+opa-debug-js
+
+*.opp
+*.opx
+*.opx.broken
+*.dump
+*.api
+*.api-txt
+*.exe
+*.log
+
+# The settings below are defined by erueru-tech.
+.idea
+.DS_Store

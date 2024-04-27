@@ -1,0 +1,31 @@
+# ref. https://pre-commit.com/#plugins
+
+fail_fast: true
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+
+  # opa
+  - repo: local
+    hooks:
+      - id: opa-fmt
+        name: run opa fmt
+        entry: ./scripts/opafmt.sh
+        language: system
+        files: (\.rego)$
+      - id: regal-lint
+        name: run regal lint
+        entry: ./scripts/regal.sh
+        language: system
+        files: (\.rego)$
+      - id: conftest
+        name: run conftest
+        entry: ./scripts/conftest.sh
+        language: system
+        always_run: true
