@@ -1,5 +1,6 @@
 # ref. https://pre-commit.com/#plugins
 
+# 特定のhookでエラーが発生した時点でエラー終了
 fail_fast: true
 
 repos:
@@ -11,7 +12,6 @@ repos:
       - id: check-toml
       - id: check-yaml
 
-  # opa
   - repo: local
     hooks:
       - id: opa-fmt
