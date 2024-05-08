@@ -16,7 +16,7 @@ test_warn_required_version1 if {
 			public_access_prevention = "enforced"
 		}
 	`)
-	count(warn_required_version1) == 0 with input as cfg
+	count(warn_required_version) == 0 with input as cfg
 }
 
 # terraform.required_versionがHashiCorpのサポートバージョン未満の場合、ルール違反
@@ -26,7 +26,7 @@ test_warn_required_version2 if {
 			required_version = "1.6.6"
 		}
 	`)
-	{"severity": "LOW", "msg": msg_required_version1} in warn_required_version1 with input as cfg
+	{"severity": "LOW", "msg": msg_required_version1} in warn_required_version with input as cfg
 }
 
 # terraform.required_versionがHashiCorpのサポートバージョンと同じ場合、ルールをパスする
@@ -39,7 +39,7 @@ test_warn_required_version3 if {
 	`,
 		[hashicorp_support_verion],
 	))
-	count(warn_required_version1) == 0 with input as cfg
+	count(warn_required_version) == 0 with input as cfg
 }
 
 # terraform.required_versionがHashiCorpのサポートバージョンより新しい場合、ルールをパスする
@@ -49,5 +49,5 @@ test_warn_required_version4 if {
 			required_version = "1.7.1"
 		}
 	`)
-	count(warn_required_version1) == 0 with input as cfg
+	count(warn_required_version) == 0 with input as cfg
 }

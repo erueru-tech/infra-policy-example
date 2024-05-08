@@ -49,7 +49,7 @@ test_public_access_prevention_inherited if {
 	} in deny_public_access_prevention with input as cfg
 }
 
-# `public_access_prevention = "enforced"`が設定されている場合、ルールにすべてパスする
+# `public_access_prevention = "enforced"`が設定されている場合、ルールにパスする
 test_public_access_prevention_enforced if {
 	cfg := parse_config("hcl2", sprintf(
 		`

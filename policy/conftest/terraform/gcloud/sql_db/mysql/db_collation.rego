@@ -12,7 +12,7 @@ msg_db_collation2 := "the value of `db_collation` in GoogleCloudPlatform/sql-db 
 # - name: fittecs
 # custom:
 #  severity: HIGH
-violation_db_collation1 contains decision if {
+violation_db_collation contains decision if {
 	module := input.module[_]
 	module.source == "GoogleCloudPlatform/sql-db/google//modules/mysql"
 	not module.db_collation
@@ -30,7 +30,7 @@ violation_db_collation1 contains decision if {
 # - name: fittecs
 # custom:
 #  severity: HIGH
-violation_db_collation2 contains decision if {
+violation_db_collation contains decision if {
 	module := input.module[_]
 	module.source == "GoogleCloudPlatform/sql-db/google//modules/mysql"
 	module.db_collation != "utf8mb4_bin"
