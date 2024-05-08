@@ -9,7 +9,7 @@ msg_required_version1 := "the terraform version used by your project has reached
 
 # METADATA
 # description: |
-#   Terraformでは直近2リリースまでのバージョンの利用を望ましいとしているため、それ以前のバージョンを使用している場合は警告を行う
+#  Terraformでは直近2リリースまでのバージョンの利用を望ましいとしているため、それより前のバージョンを使用している場合は警告を行う
 # authors:
 # - name: fittecs
 # related_resources:
@@ -19,11 +19,11 @@ msg_required_version1 := "the terraform version used by your project has reached
 #   description: さまざまなツールのEOLが確認できるサイト(上記公式記事はここから見つけた)
 # - ref: https://github.com/hashicorp/terraform/tags
 #   description: |
-#     ルールを実装する前に過去の全バージョン文字列を把握しておいた方がいい
-#     なお比較に使用するバージョン文字列はどちらも組織内の人間が設定するものなので、そこまで神経質になる必要がないかもしれない
+#    ルールを実装する前に過去の全バージョン文字列を把握しておいた方がいい
+#    なお比較に使用するバージョン文字列はどちらも組織内の人間が設定するものなので、そこまで神経質になる必要がないかもしれない
 # custom:
 #  severity: LOW
-warn_required_version1 contains decision if {
+warn_required_version contains decision if {
 	required_version := input.terraform.required_version
 	semver.compare(hashicorp_support_verion, required_version) == 1
 	decision := {

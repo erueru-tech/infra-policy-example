@@ -1,5 +1,6 @@
 rules:
   # Conftestによる設定ファイルのチェックではentrypointは不要
+  # ref. https://docs.styra.com/regal/rules/idiomatic/no-defined-entrypoint
   idiomatic:
     no-defined-entrypoint:
       level: ignore
@@ -14,7 +15,7 @@ rules:
     naming-convention:
       level: error
       conventions:
-        # パッケージ名は'conftest.'から始まらなければいけない
+        # パッケージ名は'conftest'から始まらなければいけない
         - pattern: "conftest(.*)$"
           targets:
             - package

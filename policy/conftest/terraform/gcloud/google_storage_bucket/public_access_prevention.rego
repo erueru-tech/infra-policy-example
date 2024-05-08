@@ -2,7 +2,7 @@ package conftest.terraform.gcloud.google_storage_bucket
 
 import rego.v1
 
-# policy/conftest/util.regoモジュールをインポート
+# policy/conftest/util.regoモジュールをインポート(OPAの仕様より.utilは定義不要)
 import data.conftest
 
 # deny_public_access_prevention_msg1のように関数名の先頭にdeny_を付けると

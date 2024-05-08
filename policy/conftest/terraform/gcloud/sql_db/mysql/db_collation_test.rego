@@ -9,7 +9,7 @@ test_violation_db_collation1 if {
 			source = "GoogleCloudPlatform/sql-db/google//modules/mysql"
 		}
 	`)
-	{"severity": "HIGH", "msg": msg_db_collation1} in violation_db_collation1 with input as cfg
+	{"severity": "HIGH", "msg": msg_db_collation1} in violation_db_collation with input as cfg
 }
 
 # db_collationの値が`utf8mb4_bin`でない場合、ルール違反
@@ -20,7 +20,7 @@ test_violation_db_collation2 if {
 			db_collation = "utf8_bin"
 		}
 	`)
-	{"severity": "HIGH", "msg": msg_db_collation2} in violation_db_collation2 with input as cfg
+	{"severity": "HIGH", "msg": msg_db_collation2} in violation_db_collation with input as cfg
 }
 
 # moduleの名前はルール判定に影響しない(ルールの汎用性をテスト)
@@ -31,7 +31,7 @@ test_violation_db_collation3 if {
 			db_collation = "utf8_bin"
 		}
 	`)
-	{"severity": "HIGH", "msg": msg_db_collation2} in violation_db_collation2 with input as cfg
+	{"severity": "HIGH", "msg": msg_db_collation2} in violation_db_collation with input as cfg
 }
 
 # db_collationの値が`utf8mb4_bin`である場合、ルールにパスする
@@ -42,18 +42,16 @@ test_violation_db_collation4 if {
 			db_collation = "utf8mb4_bin"
 		}
 	`)
-	count(violation_db_collation1) == 0 with input as cfg
-	count(violation_db_collation2) == 0 with input as cfg
+	count(violation_db_collation) == 0 with input as cfg
 }
 
 # 同じattributeを持つ自作モジュールについてはチェックが行われない
 test_violation_db_collation5 if {
 	cfg := parse_config("hcl2", `
 		module "sql_db" {
-			source     = "../mysql"
+			source     = "../modules/mysql"
 			db_collation = "utf8_bin"
 		}
 	`)
-	count(violation_db_collation1) == 0 with input as cfg
-	count(violation_db_collation2) == 0 with input as cfg
+	count(violation_db_collation) == 0 with input as cfg
 }
