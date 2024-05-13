@@ -24,6 +24,7 @@ msg_public_access_prevention2(name, public_access_prevention) := sprintf(
 # - name: fittecs
 # related_resources:
 # - ref: https://cloud.google.com/storage/docs/public-access-prevention?hl=ja
+#   description: 公開アクセス防止設定に関するドキュメント
 # custom:
 #  severity: MEDIUM
 deny_public_access_prevention contains decision if {
