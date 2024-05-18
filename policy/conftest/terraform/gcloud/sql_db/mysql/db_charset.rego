@@ -51,8 +51,5 @@ exception contains rules if {
 	ignore_projects = ["ignore-project"]
 	project := ignore_projects[_]
 	contains(data.conftest.file.dir, sprintf("/%v/", [project]))
-	rules := [
-		"db_charset1",
-		"db_charset2",
-	]
+	rules := ["db_charset"]
 }
