@@ -48,7 +48,7 @@ violation_db_charset contains decision if {
 # - name: fittecs
 exception contains rules if {
 	# 除外対象のインフラプロジェクトのリポジトリ名を以下に定義
-	ignore_projects = ["ignore-project"]
+	ignore_projects := ["ignore-project"]
 	project := ignore_projects[_]
 	contains(data.conftest.file.dir, sprintf("/%v/", [project]))
 	rules := ["db_charset"]
