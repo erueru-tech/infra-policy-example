@@ -17,8 +17,8 @@ $ cd /path/to/your-infra-project
 # なお各自のプロジェクトでGit管理されないようにするために.gitignoreでorg-policiesを定義する必要がある
 $ conftest pull git::https://github.com/erueru-tech/infra-policy-example.git//policy -p org-policies
 
-# org-policiesディレクトリ内に定義された全ポリシーテストを実行
-$ conftest test -p org-policies --all-namespaces .
+# org-policies/conftestディレクトリ内に定義された全ポリシーテストを実行
+$ conftest test -p org-policies/conftest --all-namespaces .
 ```
 
 (組織内のインフラプロジェクトでポリシーテストを実行するための共有 Github Action はいずれ実装予定)
@@ -31,6 +31,7 @@ $ conftest test -p org-policies --all-namespaces .
 - [OPA](https://www.openpolicyagent.org/docs/latest/#1-download-opa) v0.64.1
 - [Regal](https://github.com/StyraInc/regal?tab=readme-ov-file#download-regal) v0.21.3
 - [Conftest](https://www.conftest.dev/install/) v0.51.0
+- [Trivy](https://aquasecurity.github.io/trivy/latest/getting-started/installation/) v0.51.1
 
 各ツールのインストール手順は公式ドキュメントを参照してください。
 
@@ -57,3 +58,7 @@ $ ./scripts/opafmt.sh
 ```bash
 $ ./scripts/regal.sh
 ```
+
+## 情報
+
+設計に関する詳細は[ブログ](https://zenn.dev/erueru_tech)などで公開していますので、興味のある方はそちらを確認してください。

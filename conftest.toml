@@ -1,6 +1,3 @@
-# Regoのプログラム内で、必要に応じて使うデータ(JSON、YAML等)がまとめられているディレクトリのパス
-# FIXME dataディレクトリを実際使用することになったらアンコメント
-#data = "policy/data"
 # ポリシーのテスト対象から除外するファイル、ディレクトリ
 # .gitや.terraformに生成されるファイルは自分で作ったファイルではないのでチェックから除外
 ignore = ".git/|.terraform/|LICENSE"
