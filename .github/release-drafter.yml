@@ -1,0 +1,13 @@
+change-template: "- $TITLE (#$NUMBER) @$AUTHOR"
+change-title-escapes: '\<*_&'
+exclude-labels:
+  - "skip-changelog"
+template: |
+  ## What’s Changed
+
+  以下を対応。
+
+  ## PR
+
+  $CHANGES
+
