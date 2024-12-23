@@ -21,17 +21,15 @@ $ conftest pull git::https://github.com/erueru-tech/infra-policy-example.git//po
 $ conftest test -p org-policies/conftest --all-namespaces .
 ```
 
-(組織内のインフラプロジェクトでポリシーテストを実行するための共有 Github Action はいずれ実装予定)
-
 ## 開発
 
 このプロジェクトの開発では以下のツールを利用しています。
 
-- [pre-commit](https://pre-commit.com/#install) v3.7.0
-- [OPA](https://www.openpolicyagent.org/docs/latest/#1-download-opa) v0.64.1
-- [Regal](https://github.com/StyraInc/regal?tab=readme-ov-file#download-regal) v0.21.3
-- [Conftest](https://www.conftest.dev/install/) v0.51.0
-- [Trivy](https://aquasecurity.github.io/trivy/latest/getting-started/installation/) v0.51.1
+- [pre-commit](https://pre-commit.com/#install) v4.0.1
+- [OPA](https://www.openpolicyagent.org/docs/latest/#1-download-opa) v1.0.0
+- [Regal](https://github.com/StyraInc/regal?tab=readme-ov-file#download-regal) v0.29.2
+- [Conftest](https://www.conftest.dev/install/) v0.56.0
+- [Trivy](https://aquasecurity.github.io/trivy/latest/getting-started/installation/) v0.57.0
 
 各ツールのインストール手順は公式ドキュメントを参照してください。
 
