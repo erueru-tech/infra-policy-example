@@ -28,8 +28,7 @@ msg_public_access_prevention2(name, public_access_prevention) := sprintf(
 # custom:
 #  severity: MEDIUM
 deny_public_access_prevention contains decision if {
-	some name
-	bucket := input.resource.google_storage_bucket[name]
+	some name, bucket in input.resource.google_storage_bucket
 	not conftest.has_field(bucket, "public_access_prevention")
 	decision := {
 		"severity": rego.metadata.rule().custom.severity,

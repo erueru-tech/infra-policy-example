@@ -13,7 +13,7 @@ msg_db_charset2 := "the value of `db_charset` in GoogleCloudPlatform/sql-db modu
 # custom:
 #  severity: HIGH
 violation_db_charset contains decision if {
-	module := input.module[_]
+	some module in input.module
 	module.source == "GoogleCloudPlatform/sql-db/google//modules/mysql"
 	not module.db_charset
 	decision := {
@@ -31,7 +31,7 @@ violation_db_charset contains decision if {
 # custom:
 #  severity: HIGH
 violation_db_charset contains decision if {
-	module := input.module[_]
+	some module in input.module
 	module.source == "GoogleCloudPlatform/sql-db/google//modules/mysql"
 	module.db_charset != "utf8mb4"
 	decision := {
@@ -49,7 +49,7 @@ violation_db_charset contains decision if {
 exception contains rules if {
 	# 除外対象のインフラプロジェクトのリポジトリ名を以下に定義
 	ignore_projects := ["ignore-project"]
-	project := ignore_projects[_]
+	some project in ignore_projects
 	contains(data.conftest.file.dir, sprintf("/%v/", [project]))
 	rules := ["db_charset"]
 }
