@@ -41,6 +41,5 @@ jobs:
         uses: ./.github/actions/slack
         with:
           conclusion: ${{ needs.main.result }}
-          channel_id: ${{ vars.SLACK_CHANNEL_ID }}
           webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
 
