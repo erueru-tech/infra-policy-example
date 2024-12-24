@@ -23,7 +23,7 @@ test_warn_required_version1 if {
 test_warn_required_version2 if {
 	cfg := parse_config("hcl2", `
 		terraform {
-			required_version = "1.6.6"
+			required_version = "1.8.5"
 		}
 	`)
 	{"severity": "LOW", "msg": msg_required_version1} in warn_required_version with input as cfg
@@ -46,7 +46,7 @@ test_warn_required_version3 if {
 test_warn_required_version4 if {
 	cfg := parse_config("hcl2", `
 		terraform {
-			required_version = "1.7.1"
+			required_version = "1.9.0"
 		}
 	`)
 	count(warn_required_version) == 0 with input as cfg
